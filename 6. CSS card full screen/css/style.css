@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	height: 100vh;
+	background-color: #dcdde1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+/* 多选框隐藏 */
+#select{
+	display: none;
+}
+
+.card{
+	width: 400px;
+	height: 600px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 50px 10px rgba(0,0,0,0.3);
+	transition: all 0.6s;
+	text-align: center;
+}
+
+/* 图片上有文字，将图片已背景图片形式显示 */
+.img{
+	width: 400px;
+	height: 230px;
+	background: url(../images/img.jpeg) no-repeat center center;
+	/* 按照图片的比例放大或者缩小至充满容器 */
+	background-size: cover;
+	transition: all 0.6s;
+}
+
+.title{
+	font-size: 30px;
+	color: rgb(88,88,88);
+	margin: 30px 0 15px 0;
+	transition: all 0.6s;
+	transition-delay: 0.2s;
+}
+
+.desc{
+	width: 400px;
+	margin-bottom: 20px;
+	padding: 0 30px;
+	line-height: 1.5625rem;
+	opacity: 1;
+	color: rgb(170,170,170);
+}
+
+.content{
+	display: none;
+	height: 1300px;
+	text-align: center;
+	padding: 0 20%;
+	line-height: 2.5rem;
+	background-color: #FFF;
+}
+
+.content p{
+	margin: 30px 0;
+	text-align: left;
+	display: table;
+}
+
+.icon{
+	width: 300px;
+	font-size: 22px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.icon a i{
+	margin: 10px;
+	font-size: 22px;
+	color: rgb(75,75,75);	
+}
+
+/* 点击放大 */
+#select_label{
+	display: block;
+	position: absolute;
+	width: 400px;
+	height: 600px;
+	/* 与position: absolute; 配合使用*/
+	z-index: 999;
+}
+
+#select:checked~.card #select_label{
+	width: 100vw;
+	height: 100vh;
+}
+
+#select:checked~.card{
+	width: 100vw;
+	height: 100vh;
+}
+
+#select:checked~.card .img{
+	width: 100vw;
+	/* 为什么是这个数值？*/
+	height: 650px;
+	overflow: hidden;
+}
+
+#select:checked~.card .title{
+	transform: translateY(-400px);
+	color: #FFFFFF;
+	font-size: 70px;
+}
+
+#select:checked~.card .desc{
+	display: none;
+	opacity: 0;
+}
+
+#select:checked~.card .icon{
+	display: none;
+}
+
+#select:checked~.card .content{
+	display: block;
+	animation: content 2s;
+	transform: translateY(-50px);
+}
+
+@keyframes content{
+	from{
+		opacity: 0;
+		transform: translateY(0px);
+	}
+	to{
+		opacity: 1;
+		transform: translateY(-50px);
+	}
+}

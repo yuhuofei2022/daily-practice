@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins";
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f9f7e8;
+	overflow: hidden;
+	
+	/* 禁止选取 */
+	user-select: none;	
+}
+
+.circle{
+	width: 50vh;
+	height: 50vh;
+	border: 1px solid red;
+	border-radius: 50%;
+	color: #62bfad;
+	font-size: 6vh;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	
+	/* 执行动画：动画名 时长  线性  无限次播放 */
+	animation: spin 20s linear infinite;
+}
+
+.circle span{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+/* 定义动画 */
+@keyframes spin{
+	0%{
+		transform: rotate(360deg);
+	}
+	100%{
+		transform: rotate(0);
+	}
+}
