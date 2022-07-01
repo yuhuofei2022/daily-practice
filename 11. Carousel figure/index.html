@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title>切片轮播图</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="bigPic"></div>
+			<div class="smallPic">
+				<div class="pic action"><img src="images/img1.jpeg" ></div>
+				<div class="pic"><img src="images/img2.jpeg" ></div>
+				<div class="pic"><img src="images/img3.jpeg" ></div>
+				<div class="pic"><img src="images/img4.jpeg" ></div>
+				<div class="pic"><img src="images/img5.jpeg" ></div>
+			</div>
+		</div>
+		<script>
+			// 获取左边大图的元素
+			let bigPic = document.querySelector(".bigPic");
+			
+			// 获取右边小图的所有元素
+			let pic = document.getElementsByClassName("pic");
+			
+			let time
+			let index = 0
+			
+			// 设置一个重置函数
+			let container = function(){
+				for(let i = 0; i < pic.length; i++){
+					pic[i].className = "pic";
+				}
+			}
+			
+			// 设置一个选中函数
+			let aciton = function(){
+				// 先代入重置函数
+				container()
+				pic[index].className = "pic action"
+			}
+			
+			// 设置启动轮播图的时间函数
+			function ts(){
+				time = setInterval(function(){
+					action();
+					index++;
+					bigPic.style.backgroundImage = "url('"+[index]+".jpeg')";
+						
+					if(){
+					}
+				}, 1500);
+			}
+		</script>
+	</body>
+</html>

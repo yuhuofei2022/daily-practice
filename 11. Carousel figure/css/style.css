@@ -1,0 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: rgba(206,182,182,0.637);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{
+	position: relative;
+	width: 650px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.bigPic{
+	width: 400px;
+	height: 500px;
+	transition: .4s;
+	background-size: cover;
+}
+
+.smallPic{
+	width: 200px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+.pic{
+	position: relative;
+	width: 200px;
+	height: 90px;
+	right: 0;
+	transition: .5s;
+	overflow: hidden;
+}
+
+.pic img{
+	position: absolute;
+	width: 200px;
+	transform: translate(0,-50px);
+	transition: .5s;
+	right: 0;
+}
+
+.pic.action{
+	opacity: 0;
+	right: 250px;
+}
+
+.pic:hover img{
+	opacity: 0;
+	right: 250px;
+}
