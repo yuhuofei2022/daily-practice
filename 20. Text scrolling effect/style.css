@@ -1,0 +1,93 @@
+*{
+    /* 初始化 取消页面元素的内外边距 */
+    margin: 0;
+    padding: 0;
+	box-sizing: border-box;
+}
+body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    background: #f2be45;
+    /* 相对定位 */
+    position: relative;
+    /* 执行背景颜色变化动画：动画名 时长 线性的 停留在最后一帧 */
+    animation: changeBg 2.5s linear forwards;
+}
+
+.letter{
+    font-size: 160px;
+    font-weight: bold;
+    /* 转大写 */
+    text-transform: uppercase;
+    /* 绝对固定定位 */
+    position: fixed;
+    color: #725e82;
+}
+.letter span{
+    /* 弹性布局 水平、垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 200px;
+}
+.letter.letter1{
+    left: calc(50% - 270px);
+    top: 0px;
+    /* 执行动画文字滚动动画：动画名 时长 加速后减速 */
+    animation: letter1Animate 2.5s ease-in-out;
+}
+.letter.letter2{
+    left: calc(50% - 90px);
+    top: -4400px;
+    animation: letter2Animate 2.5s ease-in-out;
+}
+.letter.letter3{
+    left: calc(50% + 90px);
+    top: -3400px;
+    animation: letter3Animate 2.5s ease-in-out;
+}
+.letter .check{
+    color: #f2be45;
+}
+
+/* 定义动画 */
+/* 改变背景颜色 */
+@keyframes changeBg {
+    0%{
+        background-color: #f2be45;
+    }
+    100%{
+        background-color: #725e82;
+    }
+}
+/* 第一个字母的滚动动画 */
+@keyframes letter1Animate {
+    0%{
+        top: -2000px;
+    }
+    100%{
+        top: 0px;
+        color: #725e82;
+    }
+}
+/* 第二个字母的滚动动画 */
+@keyframes letter2Animate {
+    0%{
+        top: -2000px;
+    }
+    100%{
+        top: -4400px;
+        color: #725e82;
+    }
+}
+/* 第三个字母的滚动动画 */
+@keyframes letter3Animate {
+    0%{
+        top: -200px;
+    }
+    100%{
+        top: -3400px;
+        color: #725e82;
+    }
+}
